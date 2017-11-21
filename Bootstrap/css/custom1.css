@@ -1,0 +1,18 @@
+.nav nav-tabs{
+    background-color: gray;
+    font-size: 100px;
+}
+
+.carousel-inner{
+    height:300px;
+}
+
+.jumbotron{
+    color: black;
+    background-color:gray;
+        
+}
+
+.carousel-caption{
+    color: aquamarine;
+}
