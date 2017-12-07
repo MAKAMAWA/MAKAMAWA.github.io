@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="css/service.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,27 +21,25 @@
 
     <!-- Heading with phone number -->
 
-    <div class="container-fluid">
+    <div class="container-fluid header">
         <div class="row text-center">
-            <div class="col-sm-4">
-                <a href="#" class="navbar-brand">DHC Automotive</a>
+            <div class="col-sm-8">
+                <a href="#" class="navbar-brand"><img class="img-responsive" src="Images/logo.jpg" alt="DHC Automotive" width="350" height="175" border="0"></a>
             </div>
-            <div class="col-sm-4">
 
-            </div>
-            <div class="col-sm-2">
-                <h4 class="text-uppercase">call us today</h4>
-            </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4" id="headPhoneNum">
+                <h2 class="text-uppercase textGreen">call us today</h2>
                 <h4><a href="tel:1-919-732-1056">	(919) 732-1056</a></h4>
             </div>
         </div>
     </div>
 
 
-    <!-- Navigation -->
-    <div class="container">
-        <nav class="navbar navbar-inverse">
+    <div class="myDiv">
+
+        <!-- Navigation -->
+
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
 
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -50,115 +48,129 @@
     				<span class="icon-bar"></span>
     			</button>
                 <div class="collapse navbar-collapse navHeaderCollapse">
+
                     <ul class="nav nav-pills text-center">
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="indexAbout.html">About</a></li>
-                        <li><a href="Services.html">Services</a></li>
+                        <li class="active"><a href="Services.html">Services</a></li>
                         <li><a href="Contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </div>
 
-    <!-- About Us Title-->
-    <div class="container text-center" id="Title">
+        <!-- Services Title-->
+        <div class="container text-center" id="title">
 
-        <h1 class="text-uppercase">Services</h1>
-
-    </div>
-    
-
-
-
-
-
-    <!-- About Us -->
-    <div class="container-fluid text-center" id="part1">
-        <div>
-            <img src="https://irp-cdn.multiscreensite.com/cac22d9b/dms3rep/multi/mobile/about-306x235.jpg" alt="aboutImage" class="pull-right">
-            <h1>CUSTOMER SERVICE AND SATISFACTION ARE AT THE FOREFRONT OF OUR PRIORITY LIST </h1>
-            <p>Talbert’s Automotive Tire is a family-run business in Hillsborough, NC. Since 1970, we’ve been offering motorists of the local and nearby areas, unrivaled auto services. We’ve been a staple in the community ever since the doors to Talbert’s opened. Compared to most big chain auto shops, our privately-owned shop provides the most personalized services to our valued customers. We are also ASE Certified by the National Institute for Automotive Service Excellence.</p>
-        </div>
-        <p>Visit Talbert’s Automotive Tire today for auto service you won’t find at any other shop in the area. There’s a reason the doors to our shop have been open all these years. We hope you become a member of our Talbert’s family</p>
-    </div>
-
-
-
-    <div class="container" id="serviceList">
-        <h2 class="text-uppercase">OUR SERVICES </h2>
-        <ul style="list-style-type:disc">
-
-            <div class="col-md-6  col-sm-6  col-xs-12">
-                <p>Maintenance:</p>
-                <li>Factory Scheduled Maintenance</li>
-                <li>Oil Changes</li>
-                <li>Tire Rotation</li>
-                <li>Tune Ups</li>
-                <li>Fluid Services</li>
-                <li>Filter Replacements</li>
-                <li>Check Engine Light Diagnostics and Repair </li>
-                <li>Brake Repair</li>
-            </div>
-
-            <div class="col-md-6  col-sm-6  col-xs-12">
-                <p>Engine Service:</p>
-                <li>Engine Rebuild</li>
-                <li>Engine Repair</li>
-                <li>Engine Replacement</li>
-                <li>Belt Replacement</li>
-                <li>Hose Replacement</li>
-                <li>Radiator Repair and Replacement </li>
-                <li>Water Pump Repair and Replacement</li>
-                <li>Fuel Injection Service and Repair</li>
-
-            </div>
-
-            <div class="col-md-6  col-sm-6  col-xs-12">
-                <p>Transmission Service:</p>
-                <li>Transmission Rebuild</li>
-                <li>Transmission Repair and Service</li>
-                <li>Transmission Replacement</li>
-                <li>Clutch Repair and Replacement</li>
-                <li>Transmission Fluid Service</li>
-            </div>
-
-            <div class="col-md-6  col-sm-6  col-xs-12">
-                <p>Heating and Air Conditioning Repair:</p>
-                <li>A/C Repair and Service</li>
-                <li>Heating System Repair and Service</li>
-                <li>Belt Repair and Replacement</li>
-                <li>Refrigerant Replacement</li>
-            </div>
-
-            <div class="col-md-6  col-sm-6  col-xs-12">
-                <p>Electrical Services:</p>
-                <li>Electrical System Repair</li>
-                <li>Alternator Repair and Replacement</li>
-                <li>Starter Repair and Replacement </li>
-                <li>Power Steering Repair</li>
-                <li>Light Repair and Bulb Replacement</li>
-
-
-            </div>
-
-
-
-        </ul>
-
-    </div>
-
-
-    <!-- Additional Contact Section -->
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h2> We provide oil changes, factory scheduled maintenance, inspections, and just about all auto repair services. Don’t see it on the list? Just ask here!</h2>
-
-                <button type="button" class="btn btn-secondary"><a herf="#">Contact</a></button>
+            <h1 class="text-uppercase">Services</h1>
 
         </div>
-        <br />
+
+
+
+
+
+
+        <!-- Services -->
+        <div class="container-fluid text-center" id="part1">
+            <div>
+                <img src="https://irp-cdn.multiscreensite.com/cac22d9b/dms3rep/multi/mobile/about-306x235.jpg" alt="aboutImage" class="pull-right">
+                <h1>CUSTOMER SERVICE AND SATISFACTION ARE AT THE FOREFRONT OF OUR PRIORITY LIST </h1>
+                <p>To offer your the most convenience, we provide local towing services for DHC Automotive customers. Just call our office at (919) 732-1056 or fill out the form on our contact page to schedule or receive information about our towing services. If your vehicle shows any signs of trouble you can bring it to us for full service repair. We offer a variety of engine services including maintenance, repair, rebuild, and replacement.
+                </p>
+            </div>
+            <p>We regularly perform transmission work for customers. Whether it's regular preventive maintenance or you need your transmission rebuilt, we can provide the service. Or transmission services include maintenance, repair, rebuild, and replacement.</p>
+        </div>
+
+
+
+        <div class="container" id="serviceList">
+            <h2 class="text-uppercase">OUR SERVICES </h2>
+            <ul style="list-style-type:disc">
+
+                <div class="col-md-6  col-sm-6  col-xs-12">
+                    <p>Maintenance:</p>
+                    <li>Factory Scheduled Maintenance</li>
+                    <li>Oil Changes</li>
+                    <li>Tire Rotation</li>
+                    <li>Tune Ups</li>
+                    <li>Fluid Services</li>
+                    <li>Filter Replacements</li>
+                    <li>Check Engine Light Diagnostics and Repair </li>
+                    <li>Brake Repair</li>
+                </div>
+
+                <div class="col-md-6  col-sm-6  col-xs-12">
+                    <p>Engine Service:</p>
+                    <li>Engine Rebuild</li>
+                    <li>Engine Repair</li>
+                    <li>Engine Replacement</li>
+                    <li>Belt Replacement</li>
+                    <li>Hose Replacement</li>
+                    <li>Radiator Repair and Replacement </li>
+                    <li>Water Pump Repair and Replacement</li>
+                    <li>Fuel Injection Service and Repair</li>
+
+                </div>
+
+                <div class="col-md-6  col-sm-6  col-xs-12">
+                    <p>Transmission Service:</p>
+                    <li>Transmission Rebuild</li>
+                    <li>Transmission Repair and Service</li>
+                    <li>Transmission Replacement</li>
+                    <li>Clutch Repair and Replacement</li>
+                    <li>Transmission Fluid Service</li>
+                </div>
+
+                <div class="col-md-6  col-sm-6  col-xs-12">
+                    <p>Heating and Air Conditioning Repair:</p>
+                    <li>A/C Repair and Service</li>
+                    <li>Heating System Repair and Service</li>
+                    <li>Belt Repair and Replacement</li>
+                    <li>Refrigerant Replacement</li>
+                </div>
+
+                <div class="col-md-6  col-sm-6  col-xs-12">
+                    <p>Electrical Services:</p>
+                    <li>Electrical System Repair</li>
+                    <li>Alternator Repair and Replacement</li>
+                    <li>Starter Repair and Replacement </li>
+                    <li>Power Steering Repair</li>
+                    <li>Light Repair and Bulb Replacement</li>
+
+
+                </div>
+
+
+
+            </ul>
+
+        </div>
+
+
+
+
+        <!-- Block at angle -->
+
+        <div class="container-fluid slant">
+
+        </div>
+
+
+        <!-- Additional Contact Section -->
     </div>
+    <div class="jumbotron text-center" id="bottomJumbotron">
+        <div class="container">
+            <h2 class="text-uppercase">Contact Us Today!</h2>
+            <p>Are you in need of vehicle repair or maintaince? DHC Automotive offers a variety of services for your automotive needs. Give us a call today at (919) 732-1056 or click the link below to fill out a contact form.</p>
+            <button type="button" class="btn btn-default"><a herf="#">Contact</a></button>
+
+        </div>
+    </div>
+
+
+
+
 
     <!-- Footer -->
 
@@ -183,6 +195,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

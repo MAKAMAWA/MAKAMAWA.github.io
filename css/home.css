@@ -1,29 +1,34 @@
 
+.header{
+	background-color: #181818;
+	height: 175px;
+}
+
 .navbar{
 margin-bottom:0px !important;
 }
 
-.navbar-brand {
 
-}
-.navbar-inverse{
-background-color: #2F4F4F;
-color: grey;
-}
-
-
-.navbar-nav {
-    float:none;
-    margin:0 auto;
-    display: block;
-    text-align: center;
-}
-
-.navbar-nav > li {
-    
+.navbar-default{
+    background-color: #609048;
+    border-color: #609048;
+    color: white;
 }
 
 
+
+.navbar-default .nav-pills > li > a{
+color: white;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+}
+.navbar-default .nav-pills > .active > a,
+.navbar-default .nav-pills > .active > a:hover,
+.navbar-default .nav-pills > .active > a:focus{
+color: white;
+background-color: #181818;
+}
 .nav-pills > li {
     display: inline-block;
     float:none;
@@ -31,24 +36,41 @@ color: grey;
     padding-left: 30px;
     font-size: 150%;
     color: white;
-
-
 }
 
 
 
-.nav-pills > li.hover > a{
+
+
+#homeTab .tab-content{
+color: white;
+background-color: #609048;
+}
+
+.nav-tabs > li > a{
+color: #181818
 
 }
 
-
-.nav-pills > li.active > a{
-	
-    color: white;
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus{
+background-color: #181818;
+border-color: none;
+color: white;
 }
+
+
+
+
+
+
 .nav-tabs{
 	font-size: 150%;
+	border-color: #2F4F4F;
+
 }
+
 
 
 .tab-pane{
@@ -61,7 +83,6 @@ color: grey;
 .myDiv{
 position:relative;
 z-index:1;
-
 }
 .myDiv:before{
 content: "";
@@ -71,16 +92,11 @@ top: 0;
 bottom: 0;
 left: 0;
 right: 0;
-background: url("http://www.dunellenautorepair.com/pic2.jpg");
-opacity: .2;
+background: url("https://cdn.pixabay.com/photo/2016/10/18/22/58/car-1751753_960_720.jpg");
+opacity: .4;
+background-repeat: no-repeat;
+background-size: cover;
 }
-
-#mainImg {
-    opacity: 0.4;
-    filter: alpha(opacity=40); 
-}
-
-
 
 
 
@@ -88,23 +104,98 @@ opacity: .2;
 
 
 .backgroundGreen{
-	background: #00FF00;
+	background: #609048;
 }
-
 .textGreen{
-color: #00FF00;
+color: #609048;
+}
+.textBlack{
+color: #181818;
 }
 
-.backgroundG{
-	background: #00FF00; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#00FF00, #32CD32); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#00FF00, #32CD32); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#00FF00, #32CD32); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#00FF00, #32CD32); /* Standard syntax */
-}
+
 
 .jumbotron{
-	 background-color: #2F4F4F;
+	 background-color: #609048;
      border-color: #080808;
      color: white;
+     opacity: none;
+     width: 100%;
+}
+
+#bottomJumbotron{
+    margin-bottom: 0px;
+
+}
+
+
+
+.slant{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #181818;
+
+}
+.slant:after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: inherit;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform-origin: top right;
+    transform: skewY(-1deg);
+}
+
+
+
+
+/* -----------------  New -----------------------------------------------------   */
+
+
+
+
+#title{
+    
+    width: 100%;
+    background-color: #609048;
+    
+    
+    
+}
+
+#part1{
+    background-color: #609048;
+    color:white;
+    height: 600px;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: left;
+}
+p{
+    font-size: 120%;
+
+}
+
+
+
+#serviceList{
+    height: 550px;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: left;
+}
+
+form{
+    padding-top: 10%;
+    font-size: 140%;
+}
+#descField{
+    height: 180px;
 }
