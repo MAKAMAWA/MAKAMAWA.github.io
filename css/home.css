@@ -1,41 +1,42 @@
-
-.header{
-	background-color: #181818;
-	height: 175px;
+.header {
+    background-color: #181818;
+    height: 175px;
 }
 
-.navbar{
-margin-bottom:0px !important;
+.navbar {
+    margin-bottom: 0px !important;
 }
 
 
-.navbar-default{
+.navbar-default {
     background-color: #609048;
     border-color: #609048;
     color: white;
 }
 
-.navbar-inverse{
+.navbar-inverse {
     background-color: #181818;
     color: white;
 }
 
 
-.navbar-default .nav-pills > li > a{
-color: white;
--webkit-border-radius: 0;
--moz-border-radius: 0;
-border-radius: 0;
+.navbar-default .nav-pills > li > a {
+    color: white;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
+
 .navbar-default .nav-pills > .active > a,
 .navbar-default .nav-pills > .active > a:hover,
-.navbar-default .nav-pills > .active > a:focus{
-color: white;
-background-color: #181818;
+.navbar-default .nav-pills > .active > a:focus {
+    color: white;
+    background-color: #181818;
 }
+
 .nav-pills > li {
     display: inline-block;
-    float:none;
+    float: none;
     padding-right: 30px;
     padding-left: 30px;
     font-size: 150%;
@@ -46,22 +47,21 @@ background-color: #181818;
 
 
 
-#homeTab .tab-content{
-color: white;
-background-color: #609048;
+#homeTab .tab-content {
+    color: white;
+    background-color: #609048;
 }
 
-.nav-tabs > li > a{
-color: #181818
-
+.nav-tabs > li > a {
+    color: #181818
 }
 
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus{
-background-color: #181818;
-border-color: none;
-color: white;
+.nav-tabs > li.active > a:focus {
+    background-color: #181818;
+    border-color: none;
+    color: white;
 }
 
 
@@ -69,87 +69,93 @@ color: white;
 
 
 
-.nav-tabs{
-	font-size: 150%;
-	border-color: #2F4F4F;
+.nav-tabs {
+    font-size: 150%;
+    border-color: #2F4F4F;
 
 }
 
 
 
-.tab-pane{
-	font-size: 150%;
+.tab-pane {
+    font-size: 150%;
 }
 
 
 
 
-.myDiv{
-position:relative;
-z-index:1;
-}
-.myDiv:before{
-content: "";
-position: absolute;
-z-index: -1;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-
-background: url("../Images/background.jpg");
-
-opacity: .4;
-background-repeat: no-repeat;
-background-size: cover;
+.myDiv {
+    position: relative;
+    z-index: 1;
 }
 
+.myDiv:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
+    background: url("../Images/background.jpg");
 
-
-
-
-.backgroundGreen{
-	background: #609048;
+    opacity: .4;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.backgroundBlack{
+
+
+
+
+
+
+.backgroundGreen {
+    background: #609048;
+}
+
+.backgroundBlack {
     background: #181818;
 }
-.textGreen{
-color: #609048;
-}
-.textBlack{
-color: #181818;
-}
-.textWhite{
-color: white;
+
+.textGreen {
+    color: #609048;
 }
 
-
-
-.jumbotron{
-	 background-color: #609048;
-     border-color: #080808;
-     color: white;
-     opacity: none;
-     width: 100%;
+.textBlack {
+    color: #181818;
 }
 
-#bottomJumbotron{
+.textWhite {
+    color: white;
+}
+
+
+
+.jumbotron {
+    background-color: #609048;
+    border-color: #080808;
+    color: white;
+    opacity: none;
+    width: 100%;
+}
+
+#bottomJumbotron {
     margin-bottom: 0px;
 
 }
 
 
 
-.slant{
+.slant {
     position: relative;
     width: 100%;
     height: 50px;
     background-color: #181818;
 
 }
-.slant:after{
+
+.slant:after {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -169,34 +175,32 @@ color: white;
 
 /* -----------------  New -----------------------------------------------------   */
 
+#title {
 
-
-
-#title{
-    
     width: 100%;
     background-color: #609048;
-    
-    
+
+
 }
 
-#part1{
+#part1 {
     background-color: #609048;
-    color:white;
+    color: white;
     height: 600px;
     width: 100%;
     padding-left: 15%;
     padding-right: 15%;
     text-align: left;
 }
-p{
+
+p {
     font-size: 130%;
 
 }
 
 
 
-#serviceList{
+#serviceList {
     font-size: 120%;
     width: 100%;
     padding-left: 15%;
@@ -204,18 +208,13 @@ p{
     text-align: left;
     background-color: #609048;
     color: #181818
-
 }
 
-form{
-    
+form {
+
     font-size: 140%;
 }
-#descField{
+
+#descField {
     height: 180px;
 }
-
-
-
-
-
