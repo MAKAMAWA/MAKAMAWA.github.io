@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Line</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+			// Our Javascript will go here.
+            
+            
+            //set up renderer camera scene
+            
+            var renderer =new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth , window.innerHeight);
+            
+            document.body.appendChild(renderer.domElement);
+            
+            var camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1,500);
+            camera.position.set(0,0,100);
+            camera.lookAt(new THREE.Vector3(0,0,0));
+            
+            var scene = new THREE.Scene();
+            
+            
+            //define a material white line
+            
+            var material = new THREE.LineBasicMaterial({color:0xFFFFFF });
+            
+            
+            //geometry
+            
+            var geometry1 = new THREE.Geometry();
+            
+            //points
+            geometry1.vertices.push(new THREE.Vector3(-40,10,0));
+            geometry1.vertices.push(new THREE.Vector3(-20,-10,0));
+            geometry1.vertices.push(new THREE.Vector3(0,10,0));
+            geometry1.vertices.push(new THREE.Vector3(20,-10,0));
+            geometry1.vertices.push(new THREE.Vector3(40,10,0));
+            
+            
+            /*
+            var i;
+            var x=-40;
+            var y=10;
+            
+            for(i=0;i<3;i++){
+               
+                geometry1.vertices.push(new THREE.Vector3(-40,-10,0));
+                geometry1.vertices.push(new THREE.Vector3(-20,10,0));
+            }
+            
+            */
+            
+            var geometry2 = new THREE.Geometry();
+            
+            //points
+            geometry2.vertices.push(new THREE.Vector3(-40,-10,0));
+            geometry2.vertices.push(new THREE.Vector3(-20,10,0));
+            geometry2.vertices.push(new THREE.Vector3(0,-10,0));
+            geometry2.vertices.push(new THREE.Vector3(20,10,0));
+            geometry2.vertices.push(new THREE.Vector3(40,-10,0));
+            
+            //line
+            
+            var line1 = new THREE.Line(geometry1,material);
+            
+            var line2 = new THREE.Line(geometry2,material);
+            
+            
+            //add to scene 
+            scene.add(line1);
+            scene.add(line2);
+            renderer.render(scene,camera);
+            
+		</script>
+	</body>
+</html>
