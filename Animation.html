@@ -19,6 +19,10 @@
 
 <body>
     <script src="js/three.js"></script>
+    <!--Tweening library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+    
     <script>
         // Our Javascript will go here.
         var colors = [0x05A8AA, 0xB8D5B8, 0xD7B49E, 0xDC602E, 0xBC412B, 0xF19C79, 0xCBDFBD, 0xF6F4D2, 0xD4E09B, 0xFFA8A9, 0xF786AA, 0xA14A76, 0xBC412B, 0x63A375, 0xD57A66, 0x731A33, 0xCBD2DC, 0xDBD48E, 0x5E5E5E];
@@ -80,32 +84,75 @@
             scene.add(mesh);
         }
         
-        function render(){
+        function render(time){
             requestAnimationFrame(render);
             renderer.render(scene, camera);
+            geometry.verticesNeedUpdate= true;
         };
         
         
-        function resize(){
-            camera.aspect= window.innerWidth/window.innerHeight;
-            camera.updataProjectionMatrix();
-            renderer.setSize(window.innerWidth,window.innerHeight);
+        //Store the position of the original icosahedron shape
+        
+        function getOriginalVerticePositions(){
+            for(var i=0, l=geometry.vertices.length;i<l;i++){
+                verticePositions.push({x: geometry.vertices[i].x, y: geometry.vertices[i].y});
+            }
         }
+        
+        //using GSAP TweenLite
+        
+        function getNewVertices(){
+            
+            /* this function returns an array of vertice positions which are randomised
+  from the original vertice position */
+            var newVertices=[];
+            for(var i=0,l=geometry.vertices.length;i<l;i++){
+                newVertices[i]={
+                    x: verticePositions[i].x-5+Math.random()*10,
+                    y: verticePositions[i].y-5+Math.random()*10
+                }
+            }
+            return newVertices;
+        }
+        
+        function tweenIcosahedron(){
+            // tween each vertice to their new position
+            var rotation = {x:Math.random()*3,y:Math.random()*3,z:Math.random()*3};
+            TweenLite.to(mesh.rotation, 1, {x: rotation.x,y:rotation.y,z:rotation.z,ease: Back.easeInOut,onComplete:tweenIcosahedron});
+            
+            var newVerticePositions=getNewVertices();
+            for(var i=0;i<geometry.vertices.length;i++){
+                tweenVertice(i,newVerticePositions);
+            }
+        }
+ 
+        
+        function tweenVertice(i, newVerticePositions){
+            // set the tween
+            TweenLite.to(geometry.vertices[i],1,{x: newVerticePositions[i].x,y: newVerticePositions[i].y,ease: Back.easeInOut});
+        }
+        
+        
+        
+        function resize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+        
+        
         
         initScene();
         initLighting();
         initGeometry();
+        resize();
+        getOriginalVerticePositions();
         render();
-        
-        
         window.addEventListener("resize",resize);
         
+        tweenIcosahedron();
         
-        
-
-
-
-
+    
 
     </script>
 </body>
