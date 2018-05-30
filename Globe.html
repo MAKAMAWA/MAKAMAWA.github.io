@@ -1,0 +1,185 @@
+<html>
+
+<head>
+
+    <title>Globe app</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <script src="js/three.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/EffectComposer.js"></script>
+    <script src="js/RenderPass.js"></script>
+    <script src="js/CopyShader.js"></script>
+    <script src="js/ShaderPass.js"></script>
+    <script src="js/MaskPass.js"></script>
+
+
+    <script>
+        // Our Javascript will go here.
+
+        var scene;
+        var camera;
+        var renderer;
+
+        var cameraBG;
+        var sceneBG;
+        var composer;
+
+
+
+        function init() {
+
+
+            scene = new THREE.Scene();
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setClearColor(0x000000, 1.0);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.x = 35;
+            camera.position.y = 36;
+            camera.position.z = 33;
+            camera.lookAt(scene.position);
+
+            // earth
+            var sphereGeometry = new THREE.SphereGeometry(15, 30, 30);
+            // use createEarthMaterial function to create material
+            var sphereMaterial = createEarthMaterial();
+            var earthMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+            earthMesh.name = 'earth';
+            scene.add(earthMesh);
+
+            //cloud
+            var cloudGeometry = new THREE.SphereGeometry(sphereGeometry.parameters.radius * 1.01, sphereGeometry.parameters.widthSegments, sphereGeometry.parameters.heightSegments);
+            // use createCloudMaterial function to create material
+            var cloudMaterial = createCloudMaterial();
+            var cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
+            earthMesh.name = 'cloud';
+            scene.add(cloudMesh);
+
+
+            // DirectionalLight got problem
+
+
+            var light = new THREE.DirectionalLight(0xffffff, 0.5);
+            light.position.set(0, 1, 0);
+            scene.add(light);
+
+            var light = new THREE.DirectionalLight(0xffffff, 0.5);
+            light.position.set(0, -1, 0);
+            scene.add(light);
+
+            var light = new THREE.DirectionalLight(0xffffff, 0.5);
+            light.position.set(1, 0, 0);
+            scene.add(light);
+
+
+            var light = new THREE.DirectionalLight(0xffffff, 0.5);
+            light.position.set(0, 0, 1);
+            scene.add(light);
+
+            var light = new THREE.DirectionalLight(0xffffff, 0.5);
+            light.position.set(0, 0, -1);
+            scene.add(light);
+
+
+            var light = new THREE.DirectionalLight(0xffffff, 0.5);
+            light.position.set(-1, 0, 0);
+            scene.add(light);
+
+            var ambientLight = new THREE.AmbientLight(0x111111);
+            scene.add(ambientLight);
+
+
+
+            // Back ground 
+
+            cameraBG = new THREE.OrthographicCamera(-window.innerWidth, window.innerWidth, window.innerHeight, -window.innerHeight, -10000, 10000);
+
+            cameraBG.position.z = 50;
+
+            sceneBG = new THREE.Scene();
+            var materialColor = new THREE.MeshBasicMaterial({
+                map: THREE.ImageUtils.loadTexture("textures/starry_background.jpg"),
+                depthTest: false
+            });
+            var bgPlane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), materialColor);
+            bgPlane.position.z = -100;
+            bgPlane.scale.set(window.innerWidth * 2, window.innerHeight * 2, 1);
+            sceneBG.add(bgPlane);
+
+            // setup the passes
+            var bgPass = new THREE.RenderPass(sceneBG, cameraBG);
+            var renderPass = new THREE.RenderPass(scene, camera);
+            renderPass.clear = false;
+            var effectCopy = new THREE.ShaderPass(THREE.CopyShader);
+            effectCopy.renderToScreen = true;
+
+            //add passes to the composer
+            composer = new THREE.EffectComposer(renderer);
+            composer.addPass(bgPass);
+            composer.addPass(renderPass);
+            composer.addPass(effectCopy);
+
+            document.body.appendChild(renderer.domElement);
+
+            render();
+
+            //add mouse control
+            controls = new THREE.OrbitControls(camera);
+
+
+
+        }
+
+        function createEarthMaterial() {
+            var earthTexture = THREE.ImageUtils.loadTexture("textures/earthmap4k.jpg");
+            var earthMaterial = new THREE.MeshPhongMaterial();
+            earthMaterial.map = earthTexture;
+            return earthMaterial;
+        }
+
+        function createCloudMaterial() {
+            var cloudTexture = THREE.ImageUtils.loadTexture("textures/fair_clouds_4k.png");
+            var cloudMaterial = new THREE.MeshPhongMaterial();
+            cloudMaterial.map = cloudTexture;
+            cloudMaterial.transparent = true;
+            return cloudMaterial;
+        }
+
+
+        function render() {
+
+            //scene.getObjectByName('earth').rotation.y += 0.01;
+            //scene.getObjectByName('cloud').rotation.y += 0.01 * 1.1;
+            // weird thing happen when rotate ByName cloud
+            
+            renderer.autoClear = false;
+            composer.render();
+
+            requestAnimationFrame(render);
+
+        }
+
+
+
+
+
+        window.onload = init;
+    </script>
+</body>
+
+</html>
