@@ -46,7 +46,7 @@
             renderer = new THREE.WebGLRenderer();
             renderer.setClearColor(0x000000, 1.0);
             renderer.setSize(window.innerWidth, window.innerHeight);
-
+            //renderer.shadowMapEnabled = true;
 
             camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.x = 35;
@@ -67,7 +67,7 @@
             // use createCloudMaterial function to create material
             var cloudMaterial = createCloudMaterial();
             var cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-            earthMesh.name = 'cloud';
+            cloudMesh.name = 'cloud';
             scene.add(cloudMesh);
 
 
@@ -149,6 +149,15 @@
             var earthTexture = THREE.ImageUtils.loadTexture("textures/earthmap4k.jpg");
             var earthMaterial = new THREE.MeshPhongMaterial();
             earthMaterial.map = earthTexture;
+            
+            var normalMap= THREE.ImageUtils.loadTexture("textures/earth_normalmap_flat4k.jpg");
+            earthMaterial.normalMap= normalMap;
+            earthMaterial.normalScale=new THREE.Vector2(0.5,0.7);
+            
+            var specularMap= THREE.ImageUtils.loadTexture("textures/earthspec4k.jpg");
+            earthMaterial.specularMap=specularMap;
+            earthMaterial.specular=new THREE.Color(0x262626);
+            
             return earthMaterial;
         }
 
@@ -163,9 +172,11 @@
 
         function render() {
 
-            //scene.getObjectByName('earth').rotation.y += 0.01;
-            //scene.getObjectByName('cloud').rotation.y += 0.01 * 1.1;
+            scene.getObjectByName('earth').rotation.y += 0.002;
+            scene.getObjectByName('cloud').rotation.y += 0.002;
             // weird thing happen when rotate ByName cloud
+            // fixed becasue used wrong name
+            // line 70 should be: cloudMesh.name = 'cloud';
             
             renderer.autoClear = false;
             composer.render();
